@@ -1,13 +1,7 @@
-# NovaTech Revenue Intelligence Dashboard
-## Q Exploration Log
-
-**Student Name:** Rasha  
-**Date:** 13-09-2026
-
-| # | Question | Q Response | Dashboard Verification | Verified |
-|---|---|---|---|---|
-| 1 | Which campaign channel has the highest conversion rate? | Direct Mail — 50.75% (68/134) | Marketing Funnel — Campaign Response by Channel | Yes |
-| 2 | What is the average deal value by company size? | Enterprise — $1,589.17; Small — $1,486.49; Medium — $1,353.30; Large — $1,257.47 | Sales Pipeline — Average Deal Value by Customer/Company Segment | Yes |
-| 3 | What is the average resolution time for Critical vs Low priority tickets? | Critical — 1.78 days; Low — 2.05 days | Customer Health — Resolution Time by Priority | Yes |
-| 4 | Which accounts have the highest support ticket volume? | YieldMax Software — 334 tickets; $40,722 deal revenue | Customer Health — Ticket Volume by Account | Yes |
-| 5 | Which campaign has the best ROI? | NovaPulse Launch — approximately -81%; all campaigns had negative ROI | Marketing Funnel — Average Campaign ROI by Campaign | Yes |
+| # | Question | Q Response | Dashboard Verification | Verified | Metric Definition / Reconciliation |
+|---|---|---|---|---|---|
+| 1 | Which campaign channel has the highest conversion rate? | Direct Mail — 50.75% (68/134) | Marketing Funnel — Campaign Response by Channel | Partial — different metric | Q&A conversion rate and dashboard campaign response are different metrics. Conversion rate = converted leads ÷ total leads; dashboard response is average campaign response. They should not be treated as the same metric. |
+| 2 | What is the average deal value by company size? | Enterprise — $1,589.17; Small — $1,486.49; Medium — $1,353.30; Large — $1,257.47 | Sales Pipeline — Average Deal Value by Customer/Company Segment | Yes | Average deal value is evaluated at the deal/opportunity level. Joined data can contain repeated rows because of one-to-many relationships, so joined-row calculations may differ from the original CRM-level calculation. |
+| 3 | What is the average resolution time for Critical vs Low priority tickets? | Critical — 1.78 days; Low — 2.05 days | Customer Health — Resolution Time by Priority | Yes | Resolution time is the average resolution duration. Ticket counts should use distinct ticket_id to avoid double counting from joins. |
+| 4 | Which accounts have the highest support ticket volume? | YieldMax Software — 334 tickets; $40,722 deal revenue | Customer Health — Ticket Volume by Account | Yes | Ticket volume is measured using distinct ticket_id so support records are not double counted. |
+| 5 | Which campaign has the best ROI? | NovaPulse Launch — approximately -81%; all campaigns had negative ROI | Marketing Funnel — Average Campaign ROI by Campaign | Yes | Campaign ROI is treated separately from campaign response/conversion rate and compared at the campaign level. |
